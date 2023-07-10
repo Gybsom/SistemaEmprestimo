@@ -1,10 +1,14 @@
 ﻿@model IEnumerable<EmprestimoModel>
 
+@{
+    ViewData["title"] = "Index";
+}
+
 <div class="container">
 
     <div class="d-flex justify-content-between align-items-center mb-10">
         <h1>Empréstimos Ativos</h1>
-        <a class="btn btn-success mx-3">Novo empréstimo</a>
+        <a class="btn btn-success mx-3" asp-controller="Emprestimo" asp-action="Cadastrar">Novo empréstimo</a>
     </div>
     
     <table class="table table-dark">
@@ -14,6 +18,7 @@
                 <th scope="col">Valor</th>
                 <th scope="col">Taxa de Juros</th>
                 <th scope="col">Data Empréstimo</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -21,9 +26,13 @@
                 @foreach(var emprestimo in Model){
                     <tr>
                         <th scope="row">@emprestimo.Recebedor</th>
-                        <td>@emprestimo.ValorEmprestado</td>
-                        <td>@emprestimo.TaxaJuros</td>
+                        <td>R$ @emprestimo.ValorEmprestado</td>
+                        <td>@emprestimo.TaxaJuros %</td>
                         <td>@emprestimo.DataCriacao</td>
+                        <td>
+                            <a class="btn btn-warning mx-3" asp-controller="Emprestimo" asp-action="Editar" asp-route-id="@emprestimo.Id">Editar</a>
+                            <a class="btn btn-danger mx-3" asp-controller="Emprestimo" asp-action="Excluir" asp-route-id="@emprestimo.Id">Excluir</a>
+                        </td>
                     </tr>
                 }
             }

@@ -1,4 +1,6 @@
-﻿namespace SistemaEmprestimo.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SistemaEmprestimo.Models
 {
     public class EmprestimoModel
     {

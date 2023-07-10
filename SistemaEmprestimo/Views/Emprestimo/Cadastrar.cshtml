@@ -1,0 +1,27 @@
+﻿@model EmprestimoModel
+
+@{
+    ViewData["title"] = "Novo Empréstimo";
+}
+
+<div class="container bg-light p-5 my-5 rounded">
+    <div class="mb-5 text-center">
+        <h1>Cadastro de Empréstimo</h1>
+    </div>
+
+    <form method="post" asp-controller="Emprestimo" asp-action="Cadastrar">
+        <div class="mb-3">
+            <label for="Recebedor" class="form-label">Recebedor do empréstimo</label>
+            <input type="text" class="form-control" id="Recebedor" asp-for="Recebedor" required>
+        </div>
+        <div class="mb-3">
+            <label for="ValorEmprestado" class="form-label">Valor emprestado</label>
+            <input type="number" class="form-control" id="ValorEmprestado" asp-for="ValorEmprestado" required>
+        </div>
+        <div class="mb-3">
+            <label for="TaxaJuros" class="form-label">Taxa de juros contratada</label>
+            <input type="number" class="form-control" id="TaxaJuros" asp-for="TaxaJuros" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
